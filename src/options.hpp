@@ -85,6 +85,7 @@ Handle<Value> Options::New(Arguments const& args)
                 "-c",
                 server_config.c_str()};
 
+            bool dummy;
             if( !GenerateServerProgramOptions(
                     3,
                     argv,
@@ -92,7 +93,7 @@ Handle<Value> Options::New(Arguments const& args)
                     opts->ip_address_,
                     opts->ip_port_,
                     opts->requested_num_threads_,
-                    opts->use_shared_memory_
+                    dummy
                  )
             ) {
                 return ThrowException(Exception::TypeError(String::New("could not parse config file")));
